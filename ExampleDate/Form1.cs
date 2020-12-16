@@ -27,27 +27,47 @@ namespace ExampleDate
 
         private void btnYear_Click(object sender, EventArgs e)
         {
-
+            DateTime today = DateTime.Now;
+            int year = today.Year;
+            lblOutput.Text = year.ToString();
         }
 
         private void btnNumber_Click(object sender, EventArgs e)
         {
-
+            DateTime today = DateTime.Now;
+            int month = today.Month;
+            lblOutput.Text = month.ToString();
         }
 
         private void btnName_Click(object sender, EventArgs e)
         {
-
+            DateTime today = DateTime.Now;
+            string month = today.ToString("MMMM");
+            lblOutput.Text = month;
+            // M = enkel cijfer
+            // MM = 2 cijfers (7 wordt 07)
+            // MMM = 3 letterige afkorting van de maand
+            // MMMM = volledige naam van de maand
         }
 
         private void btnShort_Click(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Now;
+            string month = today.ToString("MMM");
+            lblOutput.Text = month;
+        }
 
+        private void btnWeekday_Click(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Now;
+            lblOutput.Text = today.DayOfWeek.ToString();
         }
 
         private void btnAge_Click(object sender, EventArgs e)
         {
-
+            DateTime birthday = dateTimePickerBirthday.Value;
+            TimeSpan age = DateTime.Now - birthday;
+            lblOutput.Text = (age.TotalDays / 365).ToString();
         }
 
         private void lblBirthday_Click(object sender, EventArgs e)
@@ -59,5 +79,11 @@ namespace ExampleDate
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
